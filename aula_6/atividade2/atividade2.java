@@ -1,26 +1,10 @@
 //Crie a classe Forma com o método calcularArea() e, as subclasses: Quadrado e Circulo e, exibaas áreas correspondentes a cada figura.
-package aula_6;
-
 class Forma {
     void calcularArea(double area) {
+
         System.out.println("A área da forma é " + area + " m²");
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 class Quadrado extends Forma{
 
@@ -44,12 +28,14 @@ class Circulo extends Forma{
     }
 }
 
-public class atividade2V2 {
+public class atividade2 {
     public static void main(String[] args) {
         Quadrado q1 = new Quadrado();
         q1.calcularArea(5);
 
         Circulo c1 = new Circulo();
         c1.calcularArea(5);
+        
+
     }
 }

@@ -1,5 +1,5 @@
 // Crie a classe Veículo com o método mover() e, as subclasses: Carro e Bicicleta, cada uma imprimindo algodiferente.
-package aula_6;
+
 
 class Veiculo {
     public void mover(){
