@@ -2,8 +2,8 @@ package atividade_2;
 
 class ContaBancaria {
 
-    String titular;
-    double saldo;
+    private String titular;
+    private double saldo;
 
     //sets e gets ini
     public void setTitular(String nome){
@@ -58,3 +58,5 @@ public class Métodos_e_Atributos {
         c1.exibirSaldo();
     }
 }
+
+
