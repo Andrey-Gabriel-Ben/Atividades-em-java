@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 
 class Livro {
+    private static int contador = 0;
     private int codigo;
     private String titulo;
     private boolean disponivel = true;
 
-    public Livro(int codigo, String titulo) {
-        this.codigo = codigo;
+    public Livro(String titulo) {
+        this.codigo = ++contador;
         this.titulo = titulo;
     }
 
@@ -39,10 +40,18 @@ class Livro {
 }
 
 class Usuario {
+    private static int contador = 0;
+    private int codigo;
     private String nome;
 
     public Usuario(String nome) {
+        this.codigo = ++contador;
         this.nome = nome;
+    }
+
+    //getters e setters
+    public int getCodigo() {
+        return codigo;
     }
 
     public String getNome() {
@@ -51,6 +60,10 @@ class Usuario {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
     
 }
@@ -82,8 +95,8 @@ public class Main {
     public static void main(String[] args) {
         Biblioteca b = new Biblioteca();
 
-        b.adicionarLivro(new Livro(1, "Java Básico"));
-        b.adicionarLivro(new Livro(2, "POO na prática"));
+        b.adicionarLivro(new Livro( "Java Básico"));
+        b.adicionarLivro(new Livro( "POO na prática"));
 
         b.emprestarLivro(1);
         b.emprestarLivro(1); // problema aqui
