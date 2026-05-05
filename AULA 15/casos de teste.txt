@@ -1,2 +1,16 @@
 # casos de teste
 
+1 tentar emprestar um livro que já estava emprestado => funcionou, mas não deveria => adicionar verificação;
+
+
+2 tentar emprestar sem adicionar um usuário  => funcionou, mas para quem => adicionar um usuário como parâmetro;
+3 tentar criar um novo livro com um id repetido => funcionou mas não deveria => adicionar uma verificação ou automatizar criação de ids
+4 tentar emprestar um livro não existente => falha, mas não exibe mensagem => adicionar tratamento para esse erro 
+5 tentar colocar um id negativo => funciona, mas não deveria => adicionar validação
+
+6 analizar o código => encapsulamento quebrado, falta de classificação de atributos => privar os atributos e métodos necessários
+
+
+
+
+ferramenta no jira

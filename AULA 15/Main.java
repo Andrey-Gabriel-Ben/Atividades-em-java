@@ -1,25 +1,62 @@
 import java.util.ArrayList;
 
 class Livro {
-    int codigo;
-    String titulo;
-    boolean disponivel = true;
+    private int codigo;
+    private String titulo;
+    private boolean disponivel = true;
 
     public Livro(int codigo, String titulo) {
         this.codigo = codigo;
         this.titulo = titulo;
     }
+
+    //gets e sets
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public boolean getDisponivel(){
+        return disponivel;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+    
 }
 
 class Usuario {
-    String nome;
+    private String nome;
+
     public Usuario(String nome) {
         this.nome = nome;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
 }
 
 class Biblioteca {
-    ArrayList<Livro> livros = new ArrayList<>();
+    private static ArrayList<Livro> livros = new ArrayList<>();
     
     public void adicionarLivro(Livro livro) {
         livros.add(livro);
@@ -27,8 +64,8 @@ class Biblioteca {
 
     public void emprestarLivro(int codigo) {
         for (Livro livro : livros) {
-            if (livro.codigo == codigo) {
-                livro.disponivel = false;
+            if (livro.getCodigo() == codigo) {
+                livro.setDisponivel(false);
                 System.out.println("Livro emprestado!");
             } //verificar se o livro esta emprestado antes de empresta-lo
         }
@@ -36,7 +73,7 @@ class Biblioteca {
 
     public void listarLivros() {
         for (Livro livro : livros) {
-            System.out.println(livro.codigo + " - " + livro.titulo + " - " + (livro.disponivel ? "Disponível" : "Emprestado"));
+            System.out.println(livro.getCodigo() + " - " + livro.getTitulo() + " - " + (livro.getDisponivel() ? "Disponível" : "Emprestado"));
         }
     }
 }
