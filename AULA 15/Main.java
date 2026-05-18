@@ -11,7 +11,7 @@ class Livro {
         this.titulo = titulo;
     }
 
-    //gets e sets
+    // gets e sets
 
     public int getCodigo() {
         return codigo;
@@ -21,7 +21,7 @@ class Livro {
         return titulo;
     }
 
-    public boolean getDisponivel(){
+    public boolean getDisponivel() {
         return disponivel;
     }
 
@@ -36,7 +36,7 @@ class Livro {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
-    
+
 }
 
 class Usuario {
@@ -49,7 +49,7 @@ class Usuario {
         this.nome = nome;
     }
 
-    //getters e setters
+    // getters e setters
     public int getCodigo() {
         return codigo;
     }
@@ -65,28 +65,42 @@ class Usuario {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-    
+
 }
 
 class Biblioteca {
+    // listas de cadastro
+    private static ArrayList<Usuario> usuarios = new ArrayList<>();
     private static ArrayList<Livro> livros = new ArrayList<>();
-    
+
+    //Metodo de cadastro
     public void adicionarLivro(Livro livro) {
         livros.add(livro);
     }
 
-    public void emprestarLivro(int codigo) {
+    public void adicionarUsuarios(Usuario usuario) {
+        usuarios.add(usuario);
+    }
+
+    //metodo de emprestimo
+    public void emprestarLivro(int id_livro, Usuario usuario) {
         for (Livro livro : livros) {
-            if (livro.getCodigo() == codigo) {
-                livro.setDisponivel(false);
-                System.out.println("Livro emprestado!");
-            } //verificar se o livro esta emprestado antes de empresta-lo
+            if (livro.getCodigo() == id_livro) {
+                if (livro.getDisponivel()) {
+                    livro.setDisponivel(false);
+                    System.out.println("Livro emprestado ao usuario de id " + id_usuario);
+                } else {
+                    System.out.println(
+                            "O livro " + livro.getTitulo() + " selecionado encontra-se indisponível no momento.");
+                }
+            }
         }
     }
 
     public void listarLivros() {
         for (Livro livro : livros) {
-            System.out.println(livro.getCodigo() + " - " + livro.getTitulo() + " - " + (livro.getDisponivel() ? "Disponível" : "Emprestado"));
+            System.out.println(livro.getCodigo() + " - " + livro.getTitulo() + " - "
+                    + (livro.getDisponivel() ? "Disponível" : "Emprestado"));
         }
     }
 }
@@ -95,11 +109,11 @@ public class Main {
     public static void main(String[] args) {
         Biblioteca b = new Biblioteca();
 
-        b.adicionarLivro(new Livro( "Java Básico"));
-        b.adicionarLivro(new Livro( "POO na prática"));
+        b.adicionarLivro(new Livro("Java Básico"));
+        b.adicionarLivro(new Livro("POO na prática"));
 
-        b.emprestarLivro(1);
-        b.emprestarLivro(1); // problema aqui
+        b.emprestarLivro(1, 1);
+        b.emprestarLivro(1, 2); // problema aqui
 
         b.listarLivros();
     }
